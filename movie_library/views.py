@@ -1,3 +1,9 @@
-from django.shortcuts import render
+import re
+from django.http import JsonResponse
+from .models import Movie
+from .serializers import ListMoviesSerializer
 
-# Create your views here.
+def movies_list(request):
+   movies = Movie.objects.all()
+   serializer = ListMoviesSerializer(movies,many=True)
+   return JsonResponse({'movies':serializer.data},safe=False)

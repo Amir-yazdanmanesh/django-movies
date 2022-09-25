@@ -45,6 +45,5 @@ class Meta:
 
 def __str__(self):
     return self.movie_name + "-" + self.year_of_release.strftime('%Y')
+# TODO
 
-def get_absolute_url(self):
-    return reverse("movie_detail", kwargs={"pk": self.pk})
