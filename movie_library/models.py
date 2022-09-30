@@ -39,7 +39,7 @@ class Movie(models.Model):
       validators=[MinValueValidator(0.0),MaxValueValidator(10.0)],
     )
     
-    movie_img = models.ImageField(upload_to='media/files/covers', null=True, blank=True,default = None)
+    movie_img = models.ImageField(upload_to='movie_library/templates/moviehunter/css/images', null=True, blank=True,default = None)
     
     
     class Meta:
