@@ -8,4 +8,4 @@ from .models import Movie
 class ListMoviesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['id','movie_name','genre']
+        fields = ['id','movie_name','genre','movie_img']

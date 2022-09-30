@@ -8,6 +8,7 @@ import uuid
 from django.core.validators import MaxValueValidator,MinValueValidator
 from datetime import date
 from django.urls import reverse
+
 class Movie(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     GENRE_CHOICES = [
@@ -37,13 +38,15 @@ class Movie(models.Model):
     average_rating = models.FloatField(
       validators=[MinValueValidator(0.0),MaxValueValidator(10.0)],
     )
+    
+    movie_img = models.ImageField(upload_to='movies/files/covers', null=True, blank=True,default = None)
+    
+    
+    class Meta:
+        ordering = ["-year_of_release"]
 
 
-class Meta:
-      ordering = ["-year_of_release"]
+    def __str__(self):
+        return self.movie_name + "-" + self.year_of_release.strftime('%Y')
 
-
-def __str__(self):
-    return self.movie_name + "-" + self.year_of_release.strftime('%Y')
-# TODO
 
