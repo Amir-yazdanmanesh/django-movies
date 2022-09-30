@@ -21,7 +21,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('movies/',views.list_movies),
-    path('postMovies/<str:movie_id>',views.postMovies)
+    path('postMovies/<str:movie_id>',views.postMovies),
+    path('home',views.getAllmovies)
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

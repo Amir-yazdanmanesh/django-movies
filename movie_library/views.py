@@ -17,3 +17,10 @@ def postMovies(request, movie_id):
         return render(request, 'movies/movie.html', {'movie': movie})
     else:
            raise Http404('mMovie does not exist')
+
+def getAllmovies(request):
+    movie = Movie.objects.all()
+    if movie is not None:
+        return render(request, 'moviehunter/index.html', {'movie': movie})
+    else:
+           raise Http404('mMovie does not exist')
