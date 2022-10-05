@@ -7,7 +7,7 @@ from .serializers import ListMoviesSerializer
 
 def list_movies(request):
     movies = Movie.objects.all()
-    serializer = ListMoviesSerializer(movies, many=True)
+    serializer = ListMoviesSerializer(movies, many=True, context={'request': request})
     return JsonResponse({'movies': serializer.data}, safe=False)
 
 
